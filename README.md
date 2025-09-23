@@ -16,7 +16,7 @@ To run this MCP locally run the following commands
 
 ```bash
   git clone https://github.com/gofs-cli/mcp
-  cd gofs-mcp
+  cd mcp
   go build -o gofs-mcp
 
 ```
@@ -41,8 +41,8 @@ so claude can use the mcp in every project under your current user.
 
 This server has a caching feature to speed up fetching the documentation as it is static content that doesn't change often. The cache has a TTL of 1 day.
 
-To clear the cache you must explicitly ask claude code to clear it with a prompt such as `clear the gofs-mcp cache` or you can clear it manually in the temp folder at
+To clear the cache you must explicitly ask claude code to clear it with a prompt such as `clear the gofs cache` or you can clear it manually in the temp folder at
 
 ```bash
-cd $TMPDIR/mcp
+cd $TMPDIR/gofs-mcp
 ```
