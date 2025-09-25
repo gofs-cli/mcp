@@ -26,7 +26,7 @@ Then either navigate to the directory of the gofs project you want to use claude
   claude mcp add gofs -- $(go env GOPATH)/bin/mcp
 ```
 
-to add the mcp to only that project or run
+to add the mcp to only that project or from any directory run
 
 ```bash
   claude mcp add gofs --scope user -- $(go env GOPATH)/bin/mcp
