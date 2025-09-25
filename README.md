@@ -15,27 +15,24 @@ The tool fetches the documentation markdown from the gofs-cli/web repository usi
 To run this MCP locally run the following commands
 
 ```bash
-  git clone https://github.com/gofs-cli/mcp
-  cd mcp
-  go build -o gofs-mcp
-
+  go install github.com/gofs-cli/mcp@latest
 ```
 
 ### Using the MCP server
 
-Then navigate to the gofs project and run
+Then either navigate to the directory of the gofs project you want to use claude code with and run
 
 ```bash
-  claude mcp add gofs -- /path/to/mcp/executable
+  claude mcp add gofs -- $(go env GOPATH)/bin/mcp
 ```
 
-to add the mcp to the project or run
+to add the mcp to only that project or run
 
 ```bash
-  claude mcp add gofs --scope user -- /path/to/mcp/executable
+  claude mcp add gofs --scope user -- $(go env GOPATH)/bin/mcp
 ```
 
-so claude can use the mcp in every project under your current user.
+to allow claude to use the mcp in every directory.
 
 ## Cache
 
