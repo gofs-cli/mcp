@@ -2,6 +2,7 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -15,15 +16,13 @@ type RouteData struct {
 }
 
 func FormatRoutes(data []RouteData) string {
-	formatted := ""
+	markdownTable := fmt.Sprintf("|%s|%s|\n", "path", "url") + fmt.Sprintf("|%s|%s|\n", "----", "---")
 
-	for _, value := range data {
-		temp := "Name: " + value.Path + " which can be accessed at URL: " + value.URL
-
-		formatted += temp + ", "
+	for _, route := range data {
+		markdownTable += fmt.Sprintf("|%s|%s|\n", route.Path, route.URL)
 	}
 
-	return formatted
+	return markdownTable
 }
 
 func GetRoutes() ([]RouteData, error) {

@@ -18,7 +18,7 @@ func SearchCache(hash string) (exists bool, content string, err error) {
 	filePath := filepath.Join(tempPath, hash+cacheFileExt)
 
 	if _, err1 := os.Stat(filePath); err1 != nil {
-		if os.IsNotExist(err) {
+		if os.IsNotExist(err1) {
 			return false, "", nil
 		} else {
 			return false, "", &ReturnError{Message: "Checking existence of temp file called " + hash + cacheFileExt + " failed."}

@@ -58,7 +58,7 @@ func FetchMarkdown(ctx context.Context, req *mcp.CallToolRequest, input FetchMar
 
 func FetchUrls(ctx context.Context, req *mcp.CallToolRequest, input FetchDocumentationUrlsInput) (*mcp.CallToolResult, FetchDocumentationUrlsOutput, error) {
 	//the routes get loaded when the server starts, so no logic is needed here
-	return nil, FetchDocumentationUrlsOutput{UrlsList: "Every documentation path and the url for fetching it: " + utils.FormatRoutes(utils.Routes)}, nil
+	return nil, FetchDocumentationUrlsOutput{UrlsList: utils.FormatRoutes(utils.Routes)}, nil
 }
 
 func FetchCategoryMarkdown(ctx context.Context, req *mcp.CallToolRequest, input FetchCategoryMarkdownInput) (*mcp.CallToolResult, FetchCategoryMarkdownOutput, error) {
@@ -104,17 +104,5 @@ func FetchCategories(ctx context.Context, req *mcp.CallToolRequest, input FetchC
 		}
 	}
 
-	categoriesStr := "Here are the categories separated by spaces: "
-
-	for i, category := range categories {
-		var end string
-		if i == len(categories)-1 {
-			end = ""
-		} else {
-			end = " "
-		}
-		categoriesStr += category + end
-	}
-
-	return nil, FetchCategoriesOutput{Categories: categoriesStr}, nil
+	return nil, FetchCategoriesOutput{Categories: utils.FormatCategories(categories)}, nil
 }
